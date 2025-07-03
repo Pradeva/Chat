@@ -29,6 +29,11 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log('Server jalan di http://localhost:3000');
-});
+// server.listen(3000, () => {
+//   console.log('Server jalan di http://localhost:3000');
+// });
+
+// for vercel
+module.exports = (req, res) => {
+  server.emit('request', req, res);
+};
